@@ -75,10 +75,16 @@ class HorseTest {
     assertEquals(5.1,actualSpeed);
 }
 @Test
-    public void getDistanceTest(){
+    public void getDistanceTest_ReturnThirdParameter(){
         Horse horse = new Horse("horse",5.1, 100.1);
         double actualDistance = horse.getDistance();
         assertEquals(100.1, actualDistance);
+}
+@Test
+public void getDistance_returnsZeroIfConstructorWithTwoParam(){
+    Horse horse = new Horse("horse",5.1);
+    double actualDistance = horse.getDistance();
+    assertEquals(0,actualDistance);
 }
 
 @Test
