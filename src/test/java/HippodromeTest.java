@@ -13,8 +13,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+
 
 @ExtendWith(MockitoExtension.class)
 class HippodromeTest {
@@ -54,9 +53,7 @@ class HippodromeTest {
                 .mapToObj(i -> new Horse("horse " + i, 5.0 + i, 100.0 + i))
                 .collect(Collectors.toList());
         Hippodrome hippodrome = new Hippodrome(horseList);
-        List<Horse> expectedList = horseList;
-        List<Horse> actualList = hippodrome.getHorses();
-        assertEquals(expectedList, actualList);
+        assertIterableEquals(horseList,hippodrome.getHorses());
     }
 
     @Test
